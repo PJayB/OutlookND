@@ -37,6 +37,9 @@
             this.sendTab = this.Factory.CreateRibbonTab();
             this.sendGroup = this.Factory.CreateRibbonGroup();
             this.sendNoDelay = this.Factory.CreateRibbonButton();
+            this.btn1m = this.Factory.CreateRibbonButton();
+            this.btn5m = this.Factory.CreateRibbonButton();
+            this.separator1 = this.Factory.CreateRibbonSeparator();
             this.sendTab.SuspendLayout();
             this.sendGroup.SuspendLayout();
             // 
@@ -44,23 +47,48 @@
             // 
             this.sendTab.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.sendTab.Groups.Add(this.sendGroup);
-            this.sendTab.Label = "SEND";
+            this.sendTab.Label = "TIMED SEND";
             this.sendTab.Name = "sendTab";
             // 
             // sendGroup
             // 
             this.sendGroup.Items.Add(this.sendNoDelay);
+            this.sendGroup.Items.Add(this.separator1);
+            this.sendGroup.Items.Add(this.btn1m);
+            this.sendGroup.Items.Add(this.btn5m);
             this.sendGroup.Label = "Send";
             this.sendGroup.Name = "sendGroup";
             // 
             // sendNoDelay
             // 
             this.sendNoDelay.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.sendNoDelay.Label = "No Delay";
+            this.sendNoDelay.Label = "Immediately";
             this.sendNoDelay.Name = "sendNoDelay";
             this.sendNoDelay.OfficeImageId = "DelayDeliveryOutlook";
             this.sendNoDelay.ShowImage = true;
             this.sendNoDelay.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.sendNoDelay_Click);
+            // 
+            // btn1m
+            // 
+            this.btn1m.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btn1m.Label = "In 1m";
+            this.btn1m.Name = "btn1m";
+            this.btn1m.OfficeImageId = "DelayDeliveryOutlook";
+            this.btn1m.ShowImage = true;
+            this.btn1m.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn1m_Click);
+            // 
+            // btn5m
+            // 
+            this.btn5m.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btn5m.Label = "In 5m";
+            this.btn5m.Name = "btn5m";
+            this.btn5m.OfficeImageId = "DelayDeliveryOutlook";
+            this.btn5m.ShowImage = true;
+            this.btn5m.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn5m_Click);
+            // 
+            // separator1
+            // 
+            this.separator1.Name = "separator1";
             // 
             // NoDelayRibbonVD
             // 
@@ -80,6 +108,9 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonTab sendTab;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup sendGroup;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton sendNoDelay;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn1m;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn5m;
+        internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
     }
 
     partial class ThisRibbonCollection
