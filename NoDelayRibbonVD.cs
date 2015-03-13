@@ -29,7 +29,7 @@ namespace OutlookND
                 var mailItem = inspector.CurrentItem as _MailItem;
                 if (!mailItem.Sent)
                 {
-                    mailItem.Categories += delim + "Send Immediately";
+                    mailItem.Categories += delim + ThisAddIn.CategoryTag;
                     mailItem.DeferredDeliveryTime = when;
                     mailItem.Send();
                 }
